@@ -1,0 +1,333 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: "Amiri", serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+    direction: rtl;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    * {
+        transition: all 0.3s ease;
+    }
+}
+
+.app-container {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background-color: #0a0e1a;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Gradient background effects */
+.gradient-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.gradient-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: float 8s ease-in-out infinite;
+}
+
+.gradient-circle-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+        circle,
+        rgba(88, 166, 255, 0.15) 0%,
+        rgba(88, 166, 255, 0) 70%
+    );
+    top: -100px;
+    right: -100px;
+}
+
+.gradient-circle-2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(
+        circle,
+        rgba(139, 92, 246, 0.15) 0%,
+        rgba(139, 92, 246, 0) 70%
+    );
+    bottom: -80px;
+    left: -80px;
+    animation-delay: -4s;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(20px, 20px) scale(1.05);
+    }
+}
+
+/* Ripple effect */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(88, 166, 255, 0.4) 0%,
+        rgba(88, 166, 255, 0) 70%
+    );
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple-animation 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: translate(-50%, -50%) scale(4);
+        opacity: 0;
+    }
+}
+
+/* Main content */
+.content {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: clamp(40px, 8vh, 80px) clamp(20px, 5vw, 40px);
+    z-index: 1;
+}
+
+/* Dhikr text */
+.text-container {
+    width: 100%;
+    text-align: center;
+}
+
+.dhikr-text {
+    font-family: "Amiri", serif;
+    font-size: clamp(34px, 6vw, 36px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 20px rgba(88, 166, 255, 0.4);
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        text-shadow: 0 2px 20px rgba(88, 166, 255, 0.4);
+    }
+    50% {
+        text-shadow: 0 2px 30px rgba(88, 166, 255, 0.6);
+    }
+}
+
+/* Counter */
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.counter-circle {
+    width: clamp(180px, 40vw, 220px);
+    height: clamp(180px, 40vw, 220px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 3px solid rgba(88, 166, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(88, 166, 255, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.counter-circle.complete {
+    border-color: rgba(52, 211, 153, 0.6);
+    background: rgba(52, 211, 153, 0.05);
+    box-shadow: 0 0 40px rgba(52, 211, 153, 0.3),
+        inset 0 0 30px rgba(52, 211, 153, 0.1);
+    animation: celebrate 0.6s ease-out;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes celebrate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.counter-inner {
+    text-align: center;
+}
+
+.counter-number {
+    font-family: "Amiri", serif;
+    font-size: clamp(60px, 15vw, 80px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+}
+
+.counter-label {
+    font-family: "Amiri", serif;
+    font-size: clamp(16px, 4vw, 20px);
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 8px;
+}
+
+/* Reset button */
+.reset-button {
+    background: rgba(52, 211, 153, 0.12);
+    border: 2px solid rgba(52, 211, 153, 0.5);
+    border-radius: 50px;
+    padding: clamp(14px, 3vw, 20px) clamp(40px, 10vw, 60px);
+    font-family: "Amiri", serif;
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 700;
+    color: #34d399;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(52, 211, 153, 0.2);
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.4s ease-out;
+    z-index: 10;
+    position: relative;
+}
+
+.reset-button:hover {
+    background: rgba(52, 211, 153, 0.2);
+    border-color: rgba(52, 211, 153, 0.7);
+    box-shadow: 0 12px 40px rgba(52, 211, 153, 0.3);
+    transform: translateY(-2px);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 20px rgba(52, 211, 153, 0.3);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Instruction text */
+.instruction-text {
+    font-family: "Amiri", serif;
+    font-size: clamp(14px, 3.5vw, 18px);
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .dhikr-text {
+        font-size: 44px;
+        line-height: 1.7;
+    }
+
+    .counter-circle {
+        width: 180px;
+        height: 180px;
+    }
+
+    .counter-number {
+        font-size: 64px;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-container {
+        cursor: default;
+    }
+
+    .reset-button:hover {
+        cursor: pointer;
+    }
+}
+
+/* Landscape mode adjustments */
+@media (orientation: landscape) and (max-height: 600px) {
+    .content {
+        padding: 20px;
+        justify-content: space-around;
+    }
+
+    .dhikr-text {
+        font-size: 36px;
+        line-height: 1.5;
+    }
+
+    .counter-circle {
+        width: 140px;
+        height: 140px;
+    }
+
+    .counter-number {
+        font-size: 48px;
+    }
+}

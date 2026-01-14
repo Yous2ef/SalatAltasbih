@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="theme-color" content="#0a0e1a" />
+        <meta name="description" content="تطبيق ذكر وتسبيح إسلامي" />
+
+        <!-- PWA Meta Tags -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="صلاة التسبيح" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/png" href="/icon-192.png" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>صلاة التسبيح</title>
+    </head>
+    <body>
+        <div class="app-container" id="app-container">
+            <!-- Background gradient effects -->
+            <div class="gradient-background">
+                <div class="gradient-circle gradient-circle-1"></div>
+                <div class="gradient-circle gradient-circle-2"></div>
+            </div>
+
+            <!-- Main content -->
+            <div class="content">
+                <!-- Dhikr text -->
+                <div class="text-container">
+                    <p class="dhikr-text">سبحان الله والحمد لله</p>
+                    <p class="dhikr-text">ولا إله إلا الله والله أكبر</p>
+                    <p class="dhikr-text">
+                        ولاحول ولاقوة إلا بالله العلي العظيم
+                    </p>
+                </div>
+
+                <!-- Counter circle -->
+                <div class="counter-container">
+                    <div class="counter-circle" id="counter-circle">
+                        <div class="counter-inner">
+                            <div class="counter-number" id="counter-number">
+                                15
+                            </div>
+                            <div class="counter-label">المتبقي</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset button or instruction -->
+                <button
+                    class="reset-button"
+                    id="reset-button"
+                    style="display: none">
+                    إعادة التعداد
+                </button>
+                <p class="instruction-text" id="instruction-text">
+                    اضغط في أي مكان للعد
+                </p>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
